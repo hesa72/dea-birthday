@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maaf & Selamat Ulang Tahun Dea 🎂</title>
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Poppins', 'Comic Sans MS', sans-serif;
+      background: linear-gradient(135deg, #ffd6e0, #ff9a9e);
+    }
+
+    .card {
+      background: white;
+      width: 90%;
+      max-width: 420px;
+      border-radius: 22px;
+      padding: 28px;
+      text-align: center;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      color: #ff5e78;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #444;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .menu { display: none; }
+    .menu.active { display: block; }
+
+    button {
+      margin-top: 18px;
+      padding: 12px 22px;
+      border: none;
+      border-radius: 30px;
+      background: #ff5e78;
+      color: white;
+      font-size: 14px;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    button:hover {
+      background: #ff2f55;
+      transform: scale(1.05);
+    }
+
+    .btn-no {
+      background: #eee;
+      color: #444;
+    }
+
+    .heart {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .confetti {
+      position: fixed;
+      top: -20px;
+      font-size: 22px;
+      animation: fall 2s linear forwards;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+
+  <div id="m1" class="menu active">
+    <div class="heart">🎂</div>
+    <h1>Hai Dea…</h1>
+    <p>
+      Aku tau ini telat…<br>
+      Telat <b>8 hari</b> tepatnya 😔<br>
+      Tapi aku harap kamu tetep mau baca ini.
+    </p>
+    <button onclick="go(2)">Baca 👉</button>
+  </div>
+
+  <div id="m2" class="menu">
+    <h1>Selamat Ulang Tahun 🤍</h1>
+    <p>
+      Selamat ulang tahun yang ke-12 Januari kemarin ya, Dea 🎉<br>
+      Semoga kamu selalu sehat, bahagia,<br>
+      dan semua hal baik selalu nyamperin kamu.
+    </p>
+    <button onclick="go(3)">Lanjut</button>
+  </div>
+
+  <div id="m3" class="menu">
+    <h1>Aku Minta Maaf 😞</h1>
+    <p>
+      Maaf karena aku lupa hari penting kamu.<br>
+      Aku ngerti kalau itu nyakitin dan bikin kamu kecewa.
+    </p>
+    <button onclick="go(4)">Terus</button>
+  </div>
+
+  <div id="m4" class="menu">
+    <h1>Jujur dari Aku</h1>
+    <p>
+      Justru karena kejadian ini,
+      aku sadar kalau kamu masih sepenting itu buat aku.
+    </p>
+    <button onclick="go(5)">Terakhir</button>
+  </div>
+
+  <div id="m5" class="menu">
+    <h1>Satu Pertanyaan 🙈</h1>
+    <p>
+      Kalau aku minta kesempatan buat nebus semuanya,
+      kamu mau maafin dan nerima aku lagi ga?
+    </p>
+    <button onclick="yes()">Mau 💕</button>
+    <button class="btn-no" onclick="no()">Engga</button>
+  </div>
+
+  <div id="m6" class="menu">
+    <h1>🤍</h1>
+    <p>
+      Makasih yaa udah mau maafin dan nerima aku lagi…<br>
+      sorry for all my mistakes.
+    </p>
+  </div>
+
+</div>
+
+<script>
+  function go(n) {
+    document.querySelectorAll('.menu').forEach(m => m.classList.remove('active'));
+    document.getElementById('m' + n).classList.add('active');
+  }
+
+  function yes() {
+    go(6);
+    for (let i = 0; i < 25; i++) {
+      const c = document.createElement('div');
+      c.className = 'confetti';
+      c.innerText = '🎉';
+      c.style.left = Math.random() * 100 + 'vw';
+      document.body.appendChild(c);
+      setTimeout(() => c.remove(), 2000);
+    }
+  }
+
+  function no() {
+    alert('Kamu yakin? 🥺\nGamau nerima dan maafin aku lagi?? :c');
+  }
+</script>
+
+</body>
+</html>
